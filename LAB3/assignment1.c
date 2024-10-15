@@ -14,13 +14,11 @@ void printNumberInWords(int n) {
         return;
     }
 
-    // For numbers in thousands
     if (n / 1000 > 0) {
         printf("%s thousand ", single_digits[n / 1000]);
         n %= 1000;
     }
 
-    // For numbers in hundreds
     if (n / 100 > 0) {
         printf("%s hundred ", single_digits[n / 100]);
         n %= 100;
