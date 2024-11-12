@@ -19,18 +19,23 @@ void printMatrix(int (*matrix)[SIZE]) {
     }
 }
 
-void checkMatrix(int(*matrix1)[SIZE],int(*matrix2)[SIZE]){
+void checkMatrix(int (*matrix1)[SIZE], int (*matrix2)[SIZE]) {
     int flag = 0;
-    for(int l = 0;l<SIZE;l++){
-        for(int m = 0;m<SIZE;m++){
-            if (matrix1[l][m] == matrix2[l][m])
-            {
-                continue;
-                        }
+    for (int l = 0; l < SIZE; l++) {
+        for (int m = 0; m < SIZE; m++) {
+            if (matrix1[l][m] != matrix2[l][m]) {
+                flag = 1;
+                break;
+            }
         }
+        if (flag == 1) break; // Exit loop if asymmetry is found
     }
-    
 
+    if (flag == 1) {
+        printf("The matrix is not symmetric.\n");
+    } else {
+        printf("The matrix is symmetric.\n");
+    }
 }
 
 int main() {
@@ -51,6 +56,8 @@ int main() {
     
     printf("Transposed Matrix:\n");
     printMatrix(transposed);
+
+    checkMatrix(matrix, transposed);
 
     return 0;
 }
