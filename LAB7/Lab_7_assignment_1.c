@@ -12,7 +12,7 @@ void swapByReference(int *a, int *b) {
     *b = temp;
 }
 
-int main() {
+int main() {    
     int x = 5, y = 10;
 
     swapByValue(x, y);
